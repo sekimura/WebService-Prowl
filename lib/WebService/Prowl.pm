@@ -2,7 +2,7 @@ package WebService::Prowl;
 
 use strict;
 use 5.008_001;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use LWP::UserAgent;
 use Crypt::SSLeay;

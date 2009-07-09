@@ -1,4 +1,8 @@
 Revision history for Perl extension WebService::Prowl
 
+0.02  Thu Jul  9 12:44:00 PDT 2009
+        - added example/remindme.pl
+        - removed debugging print
+
 0.01  Wed Jul  8 15:02:25 2009
         - original version
