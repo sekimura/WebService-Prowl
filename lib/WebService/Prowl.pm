@@ -49,7 +49,7 @@ sub add {
     $req_params->{priority} ||= 0;
 
     croak("priority must be an integer value in the range [-2, 2]")
-        if ( $req_params->{priority} != /^\d+/
+        if ( $req_params->{priority} !~ /^-?\d+$/
         || $req_params->{priority} < -2
         || $req_params->{priority} > 2 );
 
