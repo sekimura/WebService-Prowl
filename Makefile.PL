@@ -2,7 +2,7 @@ use inc::Module::Install;
 name 'WebService-Prowl';
 all_from 'lib/WebService/Prowl.pm';
 
-requires 'LWP::UserAget';
+requires 'LWP::UserAgent';
 requires 'Crypt::SSLeay';
 requires 'Carp';
 requires 'XML::Simple';
