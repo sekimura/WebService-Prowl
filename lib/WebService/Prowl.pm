@@ -80,7 +80,6 @@ sub _send_request {
         $data = XML::LibXML::Simple->new->XMLin( $res->content );
     }
     else {
-        warn "noLIB";
         $data = XML::Simple->new->XMLin( $res->content );
     }
 
