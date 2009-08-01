@@ -77,12 +77,6 @@ sub verify {
     $self->_send_request($url);
 }
 
-sub _ue {
-    my $str = shift;
-    $str =~ s/([^A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg;
-    return $str;
-}
-
 sub _send_request {
     my ( $self, $url ) = @_;
     my $res = $self->{ua}->get($url);
