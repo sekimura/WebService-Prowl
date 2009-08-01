@@ -57,9 +57,11 @@ sub _build_url {
             || $req_params->{priority} < -2
             || $req_params->{priority} > 2 );
 
-        my $url = $API_BASE_URL . 'add?apikey=' . $self->{apikey} . '&';
-        $url .= join( '&', map { $_ . '=' . _ue( $req_params->{$_} ) } @params );
-        return $url;
+        my $q = URI::Query->new(
+            apikey => $self->{apikey},
+            map { $_  => $req_params->{$_} } @params,
+        );
+        return $API_BASE_URL . 'add?' . $q;
     }
 }
 
