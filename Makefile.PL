@@ -6,7 +6,7 @@ requires 'LWP::UserAgent';
 requires 'Crypt::SSLeay';
 requires 'Carp';
 requires 'XML::Simple';
-requires 'URI::Query';
+requires 'URI::Escape';
 
 build_requires 'Test::More';
 use_test_base;

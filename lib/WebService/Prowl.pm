@@ -5,7 +5,7 @@ use 5.008_001;
 our $VERSION = '0.02';
 
 use LWP::UserAgent;
-use URI::Query;
+use URI::Escape qw(uri_escape_utf8);
 use Carp qw(croak);
 
 my $API_BASE_URL = 'https://prowl.weks.net/publicapi/';
@@ -57,10 +57,15 @@ sub _build_url {
             || $req_params->{priority} < -2
             || $req_params->{priority} > 2 );
 
-        my $q = URI::Query->new(
+        my %query = (
             apikey => $self->{apikey},
             map { $_  => $req_params->{$_} } @params,
         );
+        my @out;
+        for my $k (keys %query) {
+            push @out, sprintf("%s=%s", uri_escape_utf8($k), uri_escape_utf8($query{$k}));
+        }
+        my $q = join ('&', @out);
         return $API_BASE_URL . 'add?' . $q;
     }
 }
@@ -110,7 +115,7 @@ __END__
 
 =head1 NAME
 
-WebService::Prowl -
+WebService::Prowl - a interface to Prowl Public API
 
 =head1 SYNOPSIS
 
