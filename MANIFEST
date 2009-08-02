@@ -1,7 +1,10 @@
 .gitignore
 Changes
+example/notify
 example/remindme.pl
+example/twitter-notifier
 inc/Module/Install.pm
+inc/Module/Install/AuthorTests.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
 inc/Module/Install/Fetch.pm
@@ -18,6 +21,7 @@ inc/Test/Builder.pm
 inc/Test/Builder/Module.pm
 inc/Test/More.pm
 lib/WebService/Prowl.pm
+lib/WebService/Prowl/AnyEventHTTP.pm
 Makefile.PL
 MANIFEST			This list of files
 META.yml
