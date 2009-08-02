@@ -1,5 +1,10 @@
 Revision history for Perl extension WebService::Prowl
 
+0.03  Sun Aug  2 16:15:45 PDT 2009
+        - handling query string with URI::Escape
+        - added WebService::Prowl::AnyEvent
+        - added example/twitter-notifier as a example usage of WebService::Prowl::AnyEvent
+
 0.02  Thu Jul  9 12:44:00 PDT 2009
         - added example/remindme.pl
         - removed debugging print
