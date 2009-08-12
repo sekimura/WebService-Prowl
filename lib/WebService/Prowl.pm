@@ -30,6 +30,7 @@ sub new {
         apikey => $params{'apikey'},
         ua    => LWP::UserAgent->new( agent => __PACKAGE__ . '/' . $VERSION ),
         error => '',
+        $params{'providerkey'} ? (providerkey => $params{'providerkey'}) : (),
     }, $class;
 }
 
@@ -40,7 +41,9 @@ sub error { $_[0]->{error} }
 sub _build_url {
     my ( $self, $method, %params ) = @_;
     if ($method eq 'verify') {
-        return $API_BASE_URL . 'verify?apikey=' . $self->{apikey};
+        my $url = $API_BASE_URL . 'verify?apikey=' . $self->{apikey};
+        $url .= '&providerkey=' . $self->{providerkey} if $self->{providerkey};
+        return $url;
     }
     elsif ($method eq 'add') {
         my @params = qw/priority application event description/;
@@ -59,6 +62,7 @@ sub _build_url {
 
         my %query = (
             apikey => $self->{apikey},
+            $self->{providerkey} ? (providerkey => $self->{providerkey}) : (),
             map { $_  => $req_params->{$_} } @params,
         );
         my @out;
@@ -141,12 +145,19 @@ This module aims to be a implementation of a interface to the Prowl Public API (
 
 =over 4
 
-=item new(apikey => 40byteshexadecimalstring)
+=item new(apikey => 40byteshexadecimalstring, providerkey => yetanother40byteshex)
 
 Call new() to create a Prowl Public API client object. You must pass the apikey, which you can generate on "settings" page https://prowl.weks.net/settings.php 
 
   my $apikey = 'cf09b20df08453f3d5ec113be3b4999820341dd2';
   my $ws = WevService::Prowl->new(apikey => $apikey);
+
+If you have been whiltelisted, you may want to use 'providerkey' like this:
+
+  my $apikey      = 'cf09b20df08453f3d5ec113be3b4999820341dd2';
+  my $providerkey = '68b329da9893e34099c7d8ad5cb9c94010200121';
+
+  my $ws = WevService::Prowl->new(apikey => $apikey, providerkey => $providerkey);
 
 =item verify()
 
