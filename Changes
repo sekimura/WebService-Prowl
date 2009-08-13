@@ -1,5 +1,8 @@
 Revision history for Perl extension WebService::Prowl
 
+0.04  Wed Aug 12 18:59:15 PDT 2009
+        - support providerkey
+
 0.03  Sun Aug  2 16:15:45 PDT 2009
         - handling query string with URI::Escape
         - added WebService::Prowl::AnyEvent
