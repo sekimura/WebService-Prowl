@@ -97,16 +97,16 @@ This module aims to be a implementation of a interface to the Prowl Public API b
 Call new() to create a Prowl Public API client object. You must pass the apikey, which you can generate on "settings" page https://prowl.weks.net/settings.php 
 
   my $apikey = 'cf09b20df08453f3d5ec113be3b4999820341dd2';
-  my $ws = WevService::Prowl->new(apikey => $apikey, on_error => sub { warn $_[0] });
+  my $ws = WebService::Prowl->new(apikey => $apikey, on_error => sub { warn $_[0] });
 
 and you can specify a callback C<on_error> which is called when it gets error from Prowl API server.
 
-If you have been whiltelisted, you may want to use 'providerkey' like this:
+If you have been whitelisted, you may want to use 'providerkey' like this:
 
   my $apikey      = 'cf09b20df08453f3d5ec113be3b4999820341dd2';
   my $providerkey = '68b329da9893e34099c7d8ad5cb9c94010200121';
 
-  my $ws = WevService::Prowl->new(apikey => $apikey, providerkey => $providerkey, on_error => sub {warn $_[0]});
+  my $ws = WebService::Prowl->new(apikey => $apikey, providerkey => $providerkey, on_error => sub {warn $_[0]});
 
 =over 4
 
