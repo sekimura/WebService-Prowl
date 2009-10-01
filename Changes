@@ -1,5 +1,8 @@
 Revision history for Perl extension WebService::Prowl
 
+0.05  Thu Oct  1 14:42:23 PDT 2009
+        - fixed typo [rt.cpan.org #50158]
+
 0.04  Wed Aug 12 18:59:15 PDT 2009
         - support providerkey
 
