@@ -1,5 +1,8 @@
 Revision history for Perl extension WebService::Prowl
 
+0.06  Sun Nov 15 18:06:14 PST 2009
+        - with a non-UTF8-flaged string, use uri_escape() insted of uri_escape_utf8()
+
 0.05  Thu Oct  1 14:42:23 PDT 2009
         - fixed typo [rt.cpan.org #50158]
 
