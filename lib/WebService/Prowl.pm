@@ -1,11 +1,11 @@
 package WebService::Prowl;
 
 use strict;
-use 5.008_001;
+use 5.008_001; # for utf8::is_utf8()
 our $VERSION = '0.05';
 
 use LWP::UserAgent;
-use URI::Escape qw(uri_escape_utf8);
+use URI::Escape qw(uri_escape_utf8 uri_escape);
 use Carp qw(croak);
 
 my $API_BASE_URL = 'https://prowl.weks.net/publicapi/';
@@ -67,7 +67,7 @@ sub _build_url {
         );
         my @out;
         for my $k (keys %query) {
-            push @out, sprintf("%s=%s", uri_escape_utf8($k), uri_escape_utf8($query{$k}));
+            push @out, sprintf("%s=%s", _uri_escape($k), _uri_escape($query{$k}));
         }
         my $q = join ('&', @out);
         return $API_BASE_URL . 'add?' . $q;
@@ -108,6 +108,10 @@ sub _xmlin {
     else {
         return XML::Simple->new->XMLin( $xml );
     }
+}
+
+sub _uri_escape {
+    utf8::is_utf8($_[0]) ? uri_escape_utf8($_[0]) : uri_escape($_[0]);
 }
 
 1;
