@@ -8,7 +8,7 @@ use LWP::UserAgent;
 use URI::Escape qw(uri_escape_utf8 uri_escape);
 use Carp qw(croak);
 
-my $API_BASE_URL = 'https://api.prowlapp.com/';
+my $API_BASE_URL = 'https://api.prowlapp.com/publicapi/';
 
 BEGIN {
     @WebService::Prowl::EXPORT = qw( LIBXML );
