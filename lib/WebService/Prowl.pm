@@ -221,6 +221,42 @@ Sends a app request to api and return 1 for success.
            event       => "new fav",
            description => "your tweet saved as sekimura's favorite");
 
+=item retrieve_token()
+
+Get a registration token for use in retrieve/apikey and the associated URL for the user to approve the request.
+
+success return value looks like this:
+
+    $VAR1 = {
+        'success' => {
+            'remaining' => '999',
+            'resetdate' => '1296803193',
+            'code' => '0'
+        },
+        'retrieve' => {
+            'url' => 'https://www.prowlapp.com/retrieve.php?token=fe645f043ce20f7f179c909df062334c14c51a8b',
+            'token' => 'fe645f043ce20f7f179c909df062334c14c51a8b'
+        }
+    };
+
+=item retrieve_apikey(token => $token)
+
+Get an API key from a registration token retrieved in retrieve/token. The user must have approved your request first, or you will get an error response.
+
+success return value looks like this:
+
+    $VAR1 = {
+        'success' => {
+            'remaining' => '999',
+            'resetdate' => '1296803193',
+            'code' => '200'
+        },
+        'retrieve' => {
+            'apikey' => 'd17e9cfffcb0a0c3091beda69cc31b6134c875c8'
+        }
+    };
+
+
 =item error()
 
 Returns any error messages as a string.
