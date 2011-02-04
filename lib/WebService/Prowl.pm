@@ -46,7 +46,7 @@ sub _build_url {
         return $url;
     }
     elsif ($method eq 'add') {
-        my @params = qw/priority application event description/;
+        my @params = qw/priority application event description url/;
         my $req_params = +{ map { $_ => delete $params{$_} } @params };
 
         croak("event name is required")       unless $req_params->{event};
@@ -54,6 +54,8 @@ sub _build_url {
         croak("description is required")      unless $req_params->{description};
 
         $req_params->{priority} ||= 0;
+
+        ##XXX: validate url parameter???
 
         croak("priority must be an integer value in the range [-2, 2]")
             if ( $req_params->{priority} !~ /^-?\d+$/
@@ -135,14 +137,15 @@ WebService::Prowl is a interface to Prowl Public API
 
 =head1 SYNOPSIS
 
-This module aims to be a implementation of a interface to the Prowl Public API (as available on http://forums.cocoaforge.com/viewtopic.php?f=45&t=20339)
+This module aims to be a implementation of a interface to the Prowl Public API (as available on http://www.prowlapp.com/api.php
 
     use WebService::Prowl;
     my $ws = WebService::Prowl->new(apikey => 40byteshexadecimalstring);
     $ws->verify || die $ws->error();
     $ws->add(application => "Favotter App",
              event       => "new fav",
-             description => "your tweet saved as sekimura's favorite")) {
+             description => "your tweet saved as sekimura's favorite",
+             url         => "https://github.com/sekimura")) {
     }
 
 =head1 METHODS
@@ -151,7 +154,7 @@ This module aims to be a implementation of a interface to the Prowl Public API (
 
 =item new(apikey => 40byteshexadecimalstring, providerkey => yetanother40byteshex)
 
-Call new() to create a Prowl Public API client object. You must pass the apikey, which you can generate on "settings" page https://prowl.weks.net/settings.php 
+Call new() to create a Prowl Public API client object. You must pass the apikey, which you can generate on "settings" page https://www.prowlapp.com/settings.php
 
   my $apikey = 'cf09b20df08453f3d5ec113be3b4999820341dd2';
   my $ws = WebService::Prowl->new(apikey => $apikey);
@@ -182,6 +185,9 @@ Sends a app request to api and return 1 for success.
   description: [10000] (required)
       A description for the event
 
+  url: [512] Optional
+      *Requires Prowl 1.2* The URL which should be attached to the notification.
+
   priority: An integer value ranging [-2, 2]
       a priority of the notification: Very Low, Moderate, Normal, High, Emergency
       default is 0 (Normal)
@@ -209,6 +215,6 @@ it under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<https://prowl.weks.net/>, L<http://forums.cocoaforge.com/viewtopic.php?f=45&t=20339>
+L<http://www.prowlapp.com/>, L<http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=320876271>
 
 =cut
