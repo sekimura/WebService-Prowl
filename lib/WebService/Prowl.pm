@@ -224,6 +224,7 @@ Sends a app request to api and return 1 for success.
 =item retrieve_token()
 
 Get a registration token for use in retrieve/apikey and the associated URL for the user to approve the request.
+See example/retrieve to learn how to use retrieve_token() and retrieve_apikey()
 
 success return value looks like this:
 
@@ -242,6 +243,7 @@ success return value looks like this:
 =item retrieve_apikey(token => $token)
 
 Get an API key from a registration token retrieved in retrieve/token. The user must have approved your request first, or you will get an error response.
+See example/retrieve to learn how to use retrieve_token() and retrieve_apikey()
 
 success return value looks like this:
 
