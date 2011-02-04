@@ -25,7 +25,6 @@ sub new {
     my $class  = shift;
     my %params = @_;
     my $apikey = $params{'apikey'};
-    croak("apikey is required") unless $apikey;
     return bless {
         apikey => $params{'apikey'},
         ua    => LWP::UserAgent->new( agent => __PACKAGE__ . '/' . $VERSION ),
@@ -41,11 +40,13 @@ sub error { $_[0]->{error} }
 sub _build_url {
     my ( $self, $method, %params ) = @_;
     if ($method eq 'verify') {
+        croak("apikey is required") unless $self->{apikey};
         my $url = $API_BASE_URL . 'verify?apikey=' . $self->{apikey};
         $url .= '&providerkey=' . $self->{providerkey} if $self->{providerkey};
         return $url;
     }
     elsif ($method eq 'add') {
+        croak("apikey is required") unless $self->{apikey};
         my @params = qw/priority application event description url/;
         my $req_params = +{ map { $_ => delete $params{$_} } @params };
 
@@ -74,6 +75,18 @@ sub _build_url {
         my $q = join ('&', @out);
         return $API_BASE_URL . 'add?' . $q;
     }
+    elsif ($method eq 'retrieve_token') {
+        croak("providerkey is required") unless $self->{providerkey};
+        return $API_BASE_URL . 'retrieve/token?providerkey=' . $self->{providerkey};
+    }
+    elsif ($method eq 'retrieve_apikey') {
+        croak("providerkey is required") unless $self->{providerkey};
+        my $token = $params{'token'};
+        croak("token is required") unless $token;
+        my $url =  $API_BASE_URL . 'retrieve/apikey?providerkey=' . $self->{providerkey};
+        $url .= '&token=' . $token;
+        return $url;
+    }
 }
 
 sub add {
@@ -88,8 +101,20 @@ sub verify {
     $self->_send_request($url);
 }
 
+sub retrieve_token {
+    my ( $self, %params, $cb ) = @_;
+    my $url = $self->_build_url('retrieve_token', %params);
+    $self->_send_request($url, $cb);
+}
+
+sub retrieve_apikey {
+    my ( $self, %params, $cb ) = @_;
+    my $url = $self->_build_url('retrieve_apikey', %params);
+    $self->_send_request($url, $cb);
+}
+
 sub _send_request {
-    my ( $self, $url ) = @_;
+    my ( $self, $url, $cb ) = @_;
     my $res = $self->{ua}->get($url);
     my $data = $self->_xmlin($res->content);
     if ($res->is_error) {
@@ -99,7 +124,7 @@ sub _send_request {
             : '';
         return;
     }
-    return 1;
+    return $data;
 }
 
 sub _xmlin {
