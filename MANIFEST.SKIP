@@ -12,3 +12,5 @@
 \.gz$
 \.cvsignore
 \.shipit
+\.gitignore
+\.swp$
