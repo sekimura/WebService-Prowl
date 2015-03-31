@@ -1,5 +1,6 @@
 package WebService::Prowl::AnyEventHTTP;
-
+use warnings;
+use strict;
 use base qw(WebService::Prowl);
 use AnyEvent::HTTP;
 

@@ -1,5 +1,6 @@
 package WebService::Prowl;
 
+use warnings;
 use strict;
 use 5.008_001; # for utf8::is_utf8()
 our $VERSION = '0.07';

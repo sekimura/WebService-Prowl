@@ -1,4 +1,5 @@
 use inc::Module::Install;
+no strict "subs";
 name 'WebService-Prowl';
 all_from 'lib/WebService/Prowl.pm';
 
