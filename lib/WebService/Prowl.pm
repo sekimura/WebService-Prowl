@@ -163,16 +163,15 @@ WebService::Prowl is a interface to Prowl Public API
 
 =head1 SYNOPSIS
 
-This module aims to be a implementation of a interface to the Prowl Public API (as available on http://www.prowlapp.com/api.php
+This module aims to be a implementation of a interface to the Prowl Public API (as available on http://www.prowlapp.com/api.php)
 
     use WebService::Prowl;
-    my $ws = WebService::Prowl->new(apikey => 40byteshexadecimalstring);
+    my $ws = WebService::Prowl->new(apikey => '40byteshexadecimalstring');
     $ws->verify || die $ws->error();
     $ws->add(application => "Favotter App",
              event       => "new fav",
              description => "your tweet saved as sekimura's favorite",
-             url         => "https://github.com/sekimura")) {
-    }
+             url         => "https://github.com/sekimura");
 
 =head1 METHODS
 
