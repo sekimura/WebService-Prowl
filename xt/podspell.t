@@ -7,3 +7,12 @@ all_pod_files_spelling_ok('lib');
 __DATA__
 Tatsuhiko
 Miyagawa
+Masayoshi
+Sekimura
+api
+apikey
+byteshex
+byteshexadecimalstring
+providerkey
+whitelisted
+yetanother
