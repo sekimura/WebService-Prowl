@@ -1,4 +1,5 @@
 use inc::Module::Install;
+no strict "subs";
 name 'WebService-Prowl';
 all_from 'lib/WebService/Prowl.pm';
 
@@ -7,6 +8,7 @@ requires 'Crypt::SSLeay';
 requires 'Carp';
 requires 'XML::Simple';
 requires 'URI::Escape';
+requires 'AnyEvent::HTTP';
 
 build_requires 'Test::More';
 use_test_base;
