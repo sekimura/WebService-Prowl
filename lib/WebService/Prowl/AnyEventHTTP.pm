@@ -58,6 +58,8 @@ __END__
 WebService::Prowl::AnyEventHTTP - a sub class of WebService::Prowl sending http requests by using AnyEvent::HTTP 
 
 =head1 SYNOPSIS
+=for test_synopsis
+my($ws,$apikey);
 
   use WebService::Prowl::AnyEventHTTP;
   my $ws = WebService::Prowl::AnyEventHTTP->new(apikey => $apikey, on_error => sub {warn $_[0]})
@@ -69,6 +71,8 @@ WebService::Prowl::AnyEventHTTP - a sub class of WebService::Prowl sending http 
 WebService::Prowl::AnyEvent is a sub class of WebService::Prowl to use AnyEvent::HTTP non-blocking http client
 
 =head1 SYNOPSIS
+=for test_synopsis
+my($ws,$apikey);
 
 This module aims to be a implementation of a interface to the Prowl Public API by using AnyEvent::HTTP non-blocking http client library
 
@@ -86,7 +90,7 @@ This module aims to be a implementation of a interface to the Prowl Public API b
             my $description = "$screen_name: $text";
             $ws->add('event' => $event, application => $application, description => $description);
         }
-    }
+    )
     AnyEvent->condvar->recv;
 
 =head1 METHODS
