@@ -8,6 +8,7 @@ requires 'Crypt::SSLeay';
 requires 'Carp';
 requires 'XML::Simple';
 requires 'URI::Escape';
+requires 'AnyEvent::HTTP';
 
 build_requires 'Test::More';
 use_test_base;
