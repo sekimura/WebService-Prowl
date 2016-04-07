@@ -3,7 +3,7 @@ no strict "subs";
 name 'WebService-Prowl';
 all_from 'lib/WebService/Prowl.pm';
 
-requires 'LWP::UserAgent';
+requires 'LWP::UserAgent' => '6.02';
 requires 'IO::Socket::SSL';
 requires 'Carp';
 requires 'XML::Simple';
