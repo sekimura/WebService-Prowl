@@ -4,7 +4,7 @@ name 'WebService-Prowl';
 all_from 'lib/WebService/Prowl.pm';
 
 requires 'LWP::UserAgent' => '6.02';
-requires 'IO::Socket::SSL';
+requires 'LWP::Protocol::https';
 requires 'Carp';
 requires 'XML::Simple';
 requires 'URI::Escape';
