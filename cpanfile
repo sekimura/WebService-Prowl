@@ -12,6 +12,6 @@ on 'develop' => sub {
     requires 'Module::Install';
     requires 'Module::Install::TestBase';
     requires 'Module::Install::CPANfile';
-    requires 'Module::Install::AuthorTest';
+    requires 'Module::Install::AuthorTests';
     requires 'Module::Install::Repository';
 };
