@@ -1,4 +1,5 @@
-requires 'LWP::UserAgent' => '6.02'; requires 'LWP::Protocol::https';
+requires 'LWP::UserAgent' => '6.02';
+requires 'IO::Socket::SSL';
 requires 'Carp';
 requires 'XML::Simple';
 requires 'URI::Escape';
