@@ -7,3 +7,10 @@ MYMETA.*
 blib/
 _build_params
 !META.json
+/WebService-Prowl-*
+/.build
+/_build_params
+/Build
+/Build.bat
+!Build/
+!LICENSE
