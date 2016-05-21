@@ -122,4 +122,4 @@ it under the same terms as Perl itself.
 
 # SEE ALSO
 
-[http://www.prowlapp.com/](http://www.prowlapp.com/), [http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=320876271](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=320876271)
+[http://www.prowlapp.com/](http://www.prowlapp.com/), [https://itunes.apple.com/us/app/prowl-easy-push-notifications/id320876271?mt=8](https://itunes.apple.com/us/app/prowl-easy-push-notifications/id320876271?mt=8)
