@@ -1,4 +1,3 @@
 language: perl
 install: cpanm --with-develop --installdeps --notest .
 sudo: false
-script: yes | (perl Makefile.PL && make test)
