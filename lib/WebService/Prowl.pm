@@ -278,6 +278,6 @@ it under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
-L<http://www.prowlapp.com/>, L<http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=320876271>
+L<http://www.prowlapp.com/>, L<https://itunes.apple.com/us/app/prowl-easy-push-notifications/id320876271?mt=8>
 
 =cut
