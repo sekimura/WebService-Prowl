@@ -74,7 +74,7 @@
          "web" : "https://github.com/sekimura/WebService-Prowl"
       }
    },
-   "version" : "0.07",
+   "version" : "0.08",
    "x_contributors" : [
       "Masayoshi Sekimura <sekimura@chacha.local>",
       "Masayoshi Sekimura <sekimura@sixapart.com>",

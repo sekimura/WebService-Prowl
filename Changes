@@ -2,6 +2,10 @@ Revision history for Perl extension WebService::Prowl
 
 {{$NEXT}}
 
+0.08 2016-05-22T04:18:42Z
+        - Module improvements for March 2015 by @jeffblack360
+	- Memoved Crypt::SSLeay from dependencies by @atomicstack
+
 0.07  Wed Feb  9 10:29:07 PST 2011
         - [rt.cpan.org #65374]: changed endpoint servername to api.prowlapp.com
         - [rt.cpan.org #65374]: support 'url' parameter in 'add' method

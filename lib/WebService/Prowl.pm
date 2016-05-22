@@ -3,7 +3,7 @@ package WebService::Prowl;
 use warnings;
 use strict;
 use 5.008_001; # for utf8::is_utf8()
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 use LWP::UserAgent;
 use URI::Escape qw(uri_escape_utf8 uri_escape);
